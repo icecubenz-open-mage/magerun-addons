@@ -1,9 +1,9 @@
 <?php
 namespace KJ\Magento\Util\Comparison;
 
-use KJ\Magento\Util\Comparison\Filter\OnlyDifferent;
-use KJ\Magento\Util\Comparison\Filter\OnlyEqual;
-use KJ\Magento\Util\Comparison\Filter\Null;
+use KJ\Magento\Util\Comparison\Filter\OnlyDifferentFilter;
+use KJ\Magento\Util\Comparison\Filter\OnlyEqualFilter;
+use KJ\Magento\Util\Comparison\Filter\NullFilter;
 use KJ\Magento\Util\ThemeComparison\AbstractThemeComparisonItem;
 
 abstract class Filter
@@ -22,11 +22,11 @@ abstract class Filter
     {
         switch ($value) {
             case self::ONLY_DIFFERENT:
-                return new OnlyDifferent();
+                return new OnlyDifferentFilter();
             case self::ONLY_EQUAL:
-                return new OnlyEqual();
+                return new OnlyEqualFilter();
             default:
-                return new Null();
+                return new NullFilter();
         }
     }
 
