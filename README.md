@@ -13,41 +13,30 @@ Installation
 There are a few options.  You can check out the different options in the [MageRun
 docs](http://magerun.net/introducting-the-new-n98-magerun-module-system/).
 
-Here's the easiest:
+Assuming you're running OpenMage and using composer + `magento-hackathon/magento-composer-installer` the easiest way is:
 
-1. Create ~/.n98-magerun/modules/ if it doesn't already exist.
-
-        mkdir -p ~/.n98-magerun/modules/
-
-2. Clone the magerun-addons repository in there
-
-        cd ~/.n98-magerun/modules/
-        git clone git@github.com:kalenjordan/magerun-addons.git
-
-3. It should be installed.  To see that it was installed, check to see if one of the new commands is in there, like `diff:files`.
-
-        mr diff:files
+` composer require icecube/magerun-addons`
 
 Commands
 --------
 
 ### Bust Frontend Browser Caches ###
 
-This command modifies the skin and js base URLs with a timestamp-specific URL, so that browsers will pull 
+This command modifies the skin and js base URLs with a timestamp-specific URL, so that browsers will pull
 down fresh CSS and JS.
 
     $ mr design:refresh
 
 It's intended to be used in conjunction with a web server rewrite rule that will rewrite, for example:
-       
+
     /<timestamp>/skin/...
-    
+
 to
 
     /skin/...
 
-Note: I should mention that the URL parsing to generate the URLs needs work.  It supports either a 
-URL ending in .com or a URL relative to the base (.e.g. {{base_url}}skin).  
+Note: I should mention that the URL parsing to generate the URLs needs work.  It supports either a
+URL ending in .com or a URL relative to the base (.e.g. {{base_url}}skin).
 
 ### Create dummy order ###
 
@@ -55,7 +44,7 @@ This is very experimental and has some defaults in it such as the default billin
 that aren't very international-friendly.
 
     $ mr order:create:dummy [--customer="..."] [--product="..."] [--store="..."] [--shipping="..."] count
-    
+
 Unless specified it picks a random customer, random product, and a random order creation date up to two years ago from
 the present time, and creates a defined number of orders order for a selected store.
 
@@ -72,7 +61,7 @@ models, such as the shipping and billing address - just the customer name, email
 entity.
 
     $ mr order:assign 10000000001 10
-    
+
 Assigns the order #10000000001 to customer ID 10.
 
 ### Anonymize customer data ###
@@ -97,7 +86,7 @@ file in app/code/local or lib/.
 Diff theme files to see what has been modified.
 
     $ mr diff:theme customtheme/default default/default
-    
+
 See what customizations have been made in your custom theme against the
 base theme.
 
@@ -142,3 +131,8 @@ that as an example :)
 The missing tool to generate EE gift card codes!
 
     $ mr giftcard:generate-codes --prefix=SWEET-DISCOUNTS-
+
+
+## Credit
+
+All credit for this project goes to @kalenjordan, the original repo is here: [`kalenjordan/magerun-addons`](https://github.com/kalenjordan/magerun-addons)
