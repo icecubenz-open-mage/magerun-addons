@@ -15,7 +15,7 @@ docs](http://magerun.net/introducting-the-new-n98-magerun-module-system/).
 
 Assuming you're running OpenMage and using composer + `magento-hackathon/magento-composer-installer` the easiest way is:
 
-` composer require icecube/magerun-addons`
+` composer require --dev icecube/magerun-addons`
 
 Commands
 --------
