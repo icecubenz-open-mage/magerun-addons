@@ -97,8 +97,13 @@ class AbstractThemeComparisonItem extends \KJ\Magento\Util\AbstractUtil
 
         $context = $this->_comparison->getLinesOfContext();
         $additionalParameters = $this->_comparison->getAdditionalParameters();
-        $lines = $this->_executeShellCommand(sprintf('diff -U%s %s -w %s %s',
-            $context, $additionalParameters, $fromFileFullPath, $toFileFullPath));
+        $lines = $this->_executeShellCommand(sprintf(
+            'diff -U%s %s -w %s %s',
+            $context,
+            $additionalParameters,
+            $fromFileFullPath,
+            $toFileFullPath
+        ));
 
         foreach ($lines as & $line) {
             $comparisonItemLine = new \KJ\Magento\Util\Comparison\Item\Line($line);

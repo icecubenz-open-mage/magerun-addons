@@ -36,12 +36,12 @@ class AnonymizeCommand extends \N98\Magento\Command\AbstractMagentoCommand
 
         $this->detectMagento($output, true);
         $this->initMagento();
-        $this->_salt = uniqid('',true);
+        $this->_salt = uniqid('', true);
 
         $tables = $this->_getTables();
         foreach ($tables as $table => $emailColumn) {
             $output->writeln("<info>Anonymizing $table</info>");
-            $this->_anonymizeTable($table, $emailColumn,$this->_salt);
+            $this->_anonymizeTable($table, $emailColumn, $this->_salt);
         }
     }
 

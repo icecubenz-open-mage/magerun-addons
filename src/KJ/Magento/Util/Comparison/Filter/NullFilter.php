@@ -16,5 +16,4 @@ class NullFilter extends Filter
     {
         return true;
     }
-
 }

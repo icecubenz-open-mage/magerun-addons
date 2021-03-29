@@ -64,7 +64,7 @@ class GenerateCodesCommand extends \N98\Magento\Command\AbstractMagentoCommand
 
         for ($i = 0; $i < $this->_input->getOption('length'); $i++) {
             $char = $this->_getRandomCharacter();
-            if ($dashesEvery > 0 && ( $i % $dashesEvery) == 0 && $i != 0) {
+            if ($dashesEvery > 0 && ($i % $dashesEvery) == 0 && $i != 0) {
                 $char = "-{$char}";
             }
 
@@ -86,7 +86,7 @@ class GenerateCodesCommand extends \N98\Magento\Command\AbstractMagentoCommand
         $this->_output->writeln("Expires: <info>" . (($expires) ? $expires : "never") .  "</info>");
         $this->_output->writeln("Is Redeemable: <info>" . (($isRedeemable) ? "yes" : "no") .  "</info>");
         $this->_output->writeln("Website ID: <info>" . $this->_input->getArgument('website-id') .  "</info>");
-        $this->_output->writeln("Balance: <info>" . \Mage::app()->getLocale()->currency( $currency_code )->getSymbol() . $this->_input->getArgument('balance') .  "</info>");
+        $this->_output->writeln("Balance: <info>" . \Mage::app()->getLocale()->currency($currency_code)->getSymbol() . $this->_input->getArgument('balance') .  "</info>");
 
         if ($this->_input->getOption('dry-run')) {
             $this->_output->writeln("\r\n<info>Creating " . $this->_input->getArgument('quantity') . " code(s) (dry run)</info>\r\n");

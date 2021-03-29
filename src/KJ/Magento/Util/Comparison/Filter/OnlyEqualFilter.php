@@ -16,5 +16,4 @@ class OnlyEqual extends Filter
     {
         return $item->getNumberOfDifferences() === 0;
     }
-
 }

@@ -9,7 +9,6 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class ThemeCommand extends AbstractCommand
 {
-
     protected function configure()
     {
         parent::configure();
