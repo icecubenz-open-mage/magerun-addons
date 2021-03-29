@@ -71,7 +71,6 @@ class DummyCommand extends \N98\Magento\Command\AbstractMagentoCommand
             }
             $this->_resetEverything();
         }
-
     }
 
     /**
@@ -315,7 +314,7 @@ class DummyCommand extends \N98\Magento\Command\AbstractMagentoCommand
     {
         if ($this->getCustomer()->getDefaultBillingAddress()) {
             return $this->getCustomer()->getDefaultBillingAddress();
-        } else if ($this->getCustomer()->getDefaultShippingAddress()) {
+        } elseif ($this->getCustomer()->getDefaultShippingAddress()) {
             return $this->getCustomer()->getDefaultShippingAddress();
         } else {
             return $this->getDefaultAddress();
@@ -324,10 +323,10 @@ class DummyCommand extends \N98\Magento\Command\AbstractMagentoCommand
 
     protected function getDefaultAddress()
     {
-        $data = array (
+        $data = array(
             'firstname' => $this->getCustomer()->getData('firstname'),
             'lastname' => $this->getCustomer()->getData('lastname'),
-            'street' => array (
+            'street' => array(
                 '0' => '123 Abc Road',
             ),
             'city' => 'Los Angeles',
@@ -380,7 +379,6 @@ class DummyCommand extends \N98\Magento\Command\AbstractMagentoCommand
         $this->getQuote()->setPayment($quotePayment);
 
         return $this;
-
     }
 
     protected function _getDefaultStoreId()
